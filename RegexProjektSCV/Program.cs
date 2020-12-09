@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace RegexProjektSCV
 {
@@ -6,7 +8,57 @@ namespace RegexProjektSCV
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (StreamReader reader = new StreamReader("../../daten.txt"))
+            {
+                string zeile;
+                Regex rx = new Regex("ein");
+                while ((zeile = reader.ReadLine()) != null)
+                {
+                    MatchCollection matchCollection = rx.Matches(zeile);
+                    System.Diagnostics.Debug.WriteLine(matchCollection.Count);
+                    foreach (Match item in matchCollection)
+                    {
+
+
+                        // nimm das Code-snippet und mache eine Funktion daraus (am besten übergibst Du nur den String der Regular Expression) 
+                        // und dann:
+
+                        // Zähle folgende Strings in der Datei:
+                        // bar
+                        // Bar
+                        // bar oder Bar
+
+                        // alive
+                        // Alive
+                        // alive oder Alive
+
+                        // alle Zeilen die entweder
+                        // You got me rockin and a-rollin
+                        // oder 
+                        //Rockin and a - reelin
+
+                        // "brother" oder "mother" aber sonst nichts
+
+                        // evolution ohne ein "r" davor
+
+                        // "you" oder "you're" aber kein "your"  
+
+                        // know am Ende einer Zeile
+
+                        // wieviele Worte beginnen mit jedem buchstaben des Alphabets- daher Anzahl aller *Worte* die mit "a" beginnen (case-insensitive), b, c, d ...
+
+                        // komplizierter: gib die Zeilen aus die 
+                        // Bands und Liedertitle enthalten
+                        // nur die Bands
+                        // nur die Liedertitel
+                        // die Anzahl der Zeilen jedes Liedtitles
+                    }
+
+
+
+                }
+            }
+
         }
     }
 }
